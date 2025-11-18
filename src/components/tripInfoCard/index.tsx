@@ -28,6 +28,7 @@ type Line = {
 
 // Helper to calculate linear distance between two coordinates (in meters)
 function haversineDistance(loc1: Location, loc2: Location): number {
+  if( !loc1 || ! loc2) return 0
   const R = 6371e3; // Earth radius in meters
   const φ1 = (loc1.latitude * Math.PI) / 180;
   const φ2 = (loc2.latitude * Math.PI) / 180;
@@ -47,6 +48,8 @@ interface TripInfoCardProps {
 }
 
 const TripInfoCard: React.FC<TripInfoCardProps> = ({ trip }) => {
+
+  
   const distance = haversineDistance(
     trip.currentTripPosition,
     trip.stop.location
@@ -79,10 +82,6 @@ const TripInfoCard: React.FC<TripInfoCardProps> = ({ trip }) => {
               Line {trip.line.name} → {trip.direction}
             </Typography>
           </Stack>
-
-          <Typography variant="body2" color="text.secondary">
-            Operated by {trip.line.operator.name}
-          </Typography>
 
           <Divider />
 

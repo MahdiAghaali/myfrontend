@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import TripInfoCard from "./components/tripInfoCard";
+import { Grid } from "@mui/material";
 
 const Info = [
   {
@@ -537,7 +538,12 @@ function App() {
     <BrowserRouter>
       <Provider store={store}>
           <Routes>
-            <Route path="/" element={<TripInfoCard trip={Info[1]} />} />
+          <Route path="/" element={<Grid container spacing={2}>
+              {Info.map((i, index)=>{
+                return <TripInfoCard key={index} trip={i} />
+                // return <div>hello</div>
+              })}
+            </Grid>} />
             <Route path="/*" element={<>not found</>} />
           </Routes>
       </Provider>
