@@ -1,0 +1,16 @@
+{
+    "en": {
+      "welcome": "Welcome",
+      "logout": "Log Out",
+      "settings": "Settings",
+      "home": "Home",
+      "products": "Products"
+    },
+    "de": {
+      "welcome": "Welcome",
+      "logout": "Log Out",
+      "settings": "Settings",
+      "home": "Home",
+      "products": "Produkte"
+    }
+  }
