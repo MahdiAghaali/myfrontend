@@ -1,13 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/home";
-import TopMenuBar from "./components/appMenu";
-import Footer from "./components/footer";
-import Projects from "./components/projects";
-import ThemeDashboard from "./components/theme";
-import Contact from "./components/contact";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { ThemeControllerProvider } from "./components/theme/ThemeContext";
 import TripInfoCard from "./components/tripInfoCard";
 
 const Info = [
@@ -543,19 +536,10 @@ function App() {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <ThemeControllerProvider>
-          <TopMenuBar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/theme" element={<ThemeDashboard />} />
-            <Route path="/trip" element={<TripInfoCard trip={Info[1]} />} />
+            <Route path="/" element={<TripInfoCard trip={Info[1]} />} />
             <Route path="/*" element={<>not found</>} />
-
           </Routes>
-          <Footer />
-        </ThemeControllerProvider>
       </Provider>
     </BrowserRouter>
   )
